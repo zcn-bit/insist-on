@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+ 
+//子函数
+int binary_search(int arr[],int k,int left,int right)
+{
+	while(left<=right)//建立一个循坏
+	{
+	int mid=left+(right-left)/2;//下标中间值
+	if(arr[mid]>k) 
+	{
+		right=mid-1;
+	}
+	else if(arr[mid]<k)
+	left=mid+1;
+	else
+	{
+		return mid;//走到这就是等于。K就是要找的 ,返回的是下标值 
+	}
+    }
+    	return -1;//这里即left>right .找不到这个数 
+}
+ int main()//主函数 
+{
+int arr[]={1,2,3,4,5,6,7,8,9,10};
+int left=0;
+int right=sizeof(arr)/sizeof(arr[0])-1;//这个公式只能在arr定义下面用，哪里定义哪里用 
+int m=7;
+int binary_search(arr,m,left,right);         //不能传值7.可以传常量m=7, 
+int ret=binary_search(arr,m,left,right);//????函数声明 函数中包含数组，目标值，范围左下标。范围右下标    ret是返回值， 
+  if(-1==ret)//ret作为返回值。返回-1即找不到 
+  printf("找不到啦\n");
+  else
+  printf("找到啦\n");//ret是函数的返回值，要么-1.找不到、要么下标值mid，即对应要找的值。找到啦 
+  return 0;
+} 
