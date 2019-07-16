@@ -1,0 +1,23 @@
+#include<stdio.h> 
+int main()
+{ int i,j,n=0,a[17][17]={0};
+  // while(n<1 || n>16)//作用？ 
+   printf("请输入杨辉三角形的行数:");
+     scanf("%d",&n);//要打印的行数 
+   //}
+   for(i=0;i<n;i++)//每一行的第一个数字都是1 
+     a[i][0]=1;      
+   for(i=1;i<n;i++)
+   {
+	 
+     for(j=1;j<=i;j++)
+     
+       a[i][j]=a[i-1][j-1]+a[i-1][j];//ga该数等于上面的数字加上左上角的数字 
+   }
+   for(i=0;i<n;i++)//打印 
+   { for(j=0;j<=i;j++)
+       printf("%5d",a[i][j]);
+     printf("\n");//内层循坏完换行 
+   }
+   return 0;
+}
